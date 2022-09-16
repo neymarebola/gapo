@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Btvn3</string>
+    <string name="workspace_n">Gapo</string>
+    <string name="b_n_mu_n_ch">Bạn muốn chia sẻ điều gì?</string>
+    <string name="function_ti">Livestream</string>
+    <string name="function_ti2">Ảnh/Video</string>
+    <string name="function_ti3">Bình chọn</string>
+    <string name="nguy_n_quan">Nguyễn Quang Khôi</string>
+    <string name="post_create">1 phút trước</string>
+    <string name="reaction_co">105</string>
+    <string name="comment_cou">26 Bình luận</string>
+    <string name="share_count">5 Chia sẻ</string>
+    <string name="th_ch">Thích</string>
+    <!-- strings.xml -->
+    <string name="b_nh_lu_n">Bình luận</string>
+    <string name="chia_s_">Chia sẻ</string>
+    <string name="placeholder">Viết bình luận...</string>
+    <string name="user_name">
+
+Nguy\u00E1\u00BB\u0085n Duy H\u00C6\u00B0ng
+</string>
+    <string name="comment_tim">2 phút</string>
+    <string name="action_01">Thích</string>
+    <string name="action_02">Trả lời</string>
+    <string name="some_id">+72</string>
+    <string name="title">Bài viết</string>
+
+
+</resources>
