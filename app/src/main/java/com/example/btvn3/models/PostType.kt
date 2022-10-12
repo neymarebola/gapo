@@ -1,6 +1,6 @@
 package com.example.btvn3.models
 
-object AlbumType {
+object PostType {
     val STATUS = 1
     val PHOTO = 2
     val VIDEO = 3

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".DetailActivity">
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 android:layout_height="1dp"
                 android:background="@drawable/divider"/>
 
-            <include layout="@layout/datum_type_album_layout"/>
+            <include layout="@layout/album_type_layout"/>
 
         </LinearLayout>
 

@@ -1,81 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="64dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:orientation="horizontal">
+    <data>
+        <import type="com.bumptech.glide.Glide"/>
+        <import type="com.github.marlonlom.utilities.timeago.TimeAgo"/>
+        <variable
+            name="datum"
+            type="com.example.btvn3.models.Datum" />
+    </data>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_profile_image_datum_item"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/header_avatar" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:padding="12dp">
 
-            <TextView
-                android:id="@+id/txt_display_name_datum_item"
-                android:layout_width="252dp"
-                android:layout_height="20dp"
-                android:gravity="top"
-                android:lineSpacingExtra="3sp"
-                android:text="@string/nguy_n_quan"
-                android:textAppearance="@style/nguy_n_quan"
-                android:translationY="-1.65sp" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_profile_image_datum_item"
+                setImageProfile="@{datum.user.avatar}"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                tools:src="@drawable/header_avatar" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginStart="8dp"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txt_create_time_datum_item"
-                    android:layout_width="69dp"
-                    android:layout_height="16dp"
+                    android:id="@+id/txt_display_name_datum_item"
+                    android:layout_width="252dp"
+                    android:layout_height="20dp"
                     android:gravity="top"
-                    android:lineSpacingExtra="2sp"
-                    android:text="@string/post_create"
-                    android:textAppearance="@style/post_create"
-                    android:translationY="-0.84sp"/>
-                <ImageView
-                    android:id="@+id/ic_fill_dot"
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:layout_marginStart="6.33dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_fill_dot"
-                    />
-                <ImageView
-                    android:id="@+id/ic_private"
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:layout_marginStart="6.33dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_privacy" />
+                    android:lineSpacingExtra="3sp"
+                    android:text="@{datum.user.display_name}"
+                    android:textAppearance="@style/nguy_n_quan"
+                    android:translationY="-1.65sp"
+                    tools:text="@string/nguy_n_quan" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_create_time_datum_item"
+                        android:layout_width="69dp"
+                        android:layout_height="16dp"
+                        android:gravity="top"
+                        android:lineSpacingExtra="2sp"
+                        android:text="@{TimeAgo.using(datum.create_time)}"
+                        android:textAppearance="@style/post_create"
+                        android:translationY="-0.84sp"
+                        tools:text="@string/post_create" />
+
+                    <ImageView
+                        android:id="@+id/ic_fill_dot"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="6.33dp"
+                        android:src="@drawable/ic_fill_dot" />
+
+                    <ImageView
+                        android:id="@+id/ic_private"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="6.33dp"
+                        android:src="@drawable/ic_privacy" />
+                </LinearLayout>
             </LinearLayout>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginEnd="19dp"
+                android:layout_marginBottom="42dp"
+                android:src="@drawable/ic_fill_3dot_horizontal" />
         </LinearLayout>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="19dp"
-            android:layout_marginStart="11dp"
-            android:layout_marginBottom="42dp"
-            android:src="@drawable/ic_fill_3dot_horizontal"/>
-    </LinearLayout>
-</RelativeLayout>
+    </RelativeLayout>
+</layout>

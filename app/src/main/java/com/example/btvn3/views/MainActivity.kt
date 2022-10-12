@@ -1,11 +1,10 @@
-package com.example.btvn3
+package com.example.btvn3.views
 
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.btvn3.R
 import com.example.btvn3.adapters.DatumAdapter
 import com.example.btvn3.api_service.ApiService
 import com.example.btvn3.models.Constants
