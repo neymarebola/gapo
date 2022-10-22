@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View" />
         <variable
             name="datum"
             type="com.example.btvn3.models.Datum" />
@@ -65,7 +64,7 @@
                     android:textAppearance="@style/comment_cou"
                     android:lineSpacingExtra="3sp"
                     android:translationY="-1.65sp"
-                    android:text="@{Integer.toString(datum.counts.comment_count) + `Bình luận`}"
+                    android:text="@{Integer.toString(datum.counts.comment_count) + ` Bình luận`}"
                     android:layout_marginStart="90dp"
                     android:gravity="right|top" />
 
@@ -74,7 +73,7 @@
                     android:layout_width="62dp"
                     android:layout_height="20dp"
                     tools:text="@string/share_count"
-                    android:text="@{Integer.toString(datum.counts.share_count) + `Chia sẻ`}"
+                    android:text="@{Integer.toString(datum.counts.share_count) + ` Chia sẻ`}"
                     android:textAppearance="@style/share_count"
                     android:lineSpacingExtra="3sp"
                     android:translationY="-1.65sp"

@@ -36,9 +36,12 @@
         <entry key="..\:/Users/PC/Desktop/Btvn3/app/src/main/res/layout/header_rcv_layout.xml" value="0.25" />
         <entry key="..\:/Users/PC/Desktop/Btvn3/app/src/main/res/layout/write_comment_layout.xml" value="0.25" />
         <entry key="..\:/Users/PC/Desktop/Btvn3/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.143" />
+        <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/drawable/comment_bg.xml" value="0.1275" />
+        <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/drawable/comment_tex.xml" value="0.1285" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/drawable/ic_fill_3dot_horizontal.xml" value="0.137" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/activity_detail.xml" value="0.2074074074074074" />
-        <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/activity_wrap_long_text.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/album_2_photo_layout.xml" value="0.2" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/album_3_photo_layout.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/album_4_photo_layout.xml" value="0.22447916666666667" />
@@ -52,10 +55,10 @@
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/datum_type_status_layout.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/datum_type_video_layout.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/footer_layout.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/header_layout.xml" value="0.18" />
+        <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/header_layout.xml" value="0.22" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/header_rcv_layout.xml" value="0.22" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/link_type_layout.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/photo_type_layout.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/photo_type_layout.xml" value="0.25" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/status_type_layout.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/video_type_layout.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/PC/Desktop/btvn3/app/src/main/res/layout/write_comment_layout.xml" value="0.22447916666666667" />

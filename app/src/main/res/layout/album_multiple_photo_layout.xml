@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <LinearLayout
@@ -13,6 +14,8 @@
             android:id="@+id/multi_photo_first_pic"
             android:layout_width="179dp"
             android:layout_height="179dp"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
             android:scaleType="fitXY"
             />
 
@@ -20,6 +23,8 @@
             android:id="@+id/multi_photo_second_pic"
             android:layout_width="179dp"
             android:layout_height="179dp"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
             android:scaleType="fitXY"
             android:layout_marginStart="1dp"
              />
@@ -35,6 +40,8 @@
             android:layout_width="118.67dp"
             android:layout_height="118.67dp"
             android:clipToOutline="true"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
             android:scaleType="fitXY"
             />
 
@@ -44,6 +51,8 @@
             android:layout_height="118.67dp"
             android:layout_marginStart="1dp"
             android:clipToOutline="true"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
             android:scaleType="fitXY"
              />
 
@@ -56,8 +65,10 @@
                 android:layout_width="118.67dp"
                 android:layout_height="118.67dp"
                 android:layout_marginStart="1dp"
-                android:scaleType="fitXY"
-                android:clipToOutline="true" />
+                android:clipToOutline="true"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY" />
 
             <View
                 android:layout_width="118.67dp"

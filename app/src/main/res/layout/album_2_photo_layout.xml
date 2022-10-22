@@ -8,12 +8,16 @@
         android:id="@+id/two_photo_first_pic"
         android:layout_width="360dp"
         android:layout_height="179dp"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
         android:scaleType="fitXY"
         />
     <ImageView
         android:id="@+id/two_photo_second_pic"
         android:layout_width="360dp"
         android:layout_height="179dp"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
         android:scaleType="fitXY"
         android:layout_marginTop="2dp"
         />

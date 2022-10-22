@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -19,15 +20,18 @@
                 android:id="@+id/inc_header_layout"
                 layout="@layout/header_layout" />
 
-            <TextView
+            <kr.co.prnd.readmore.ReadMoreTextView
                 android:id="@+id/txt_status"
                 android:layout_width="336dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:lineSpacingExtra="3sp"
-                android:text="haha"
+                tools:text="haha"
                 android:textAppearance="@style/ta_th_ng_ng"
-                android:translationY="-1.65sp" />
+                android:translationY="-1.65sp"
+                app:readMoreColor="@color/accentWorkSecondary"
+                app:readMoreMaxLine="5"
+                app:readMoreText="...Xem thêm"/>
 
             <!-- hien thi video -->
             <com.google.android.exoplayer2.ui.StyledPlayerView

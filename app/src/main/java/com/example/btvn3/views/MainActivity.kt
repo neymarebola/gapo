@@ -1,6 +1,7 @@
 package com.example.btvn3.views
 
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var getDatumApi: ApiService
@@ -33,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         getDatumApi = retrofit.create(ApiService::class.java)
 
         listDatum = mutableListOf()
-        var layoutManager: LinearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        var layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         rcv_list_datum.layoutManager = layoutManager
         rcv_list_datum.isNestedScrollingEnabled = false
@@ -41,6 +43,13 @@ class MainActivity : AppCompatActivity() {
         adapter = DatumAdapter(this, listDatum)
         rcv_list_datum.adapter = adapter
         getListDatum()
+    }
+
+    fun size() {
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val height = displayMetrics.heightPixels
+        val width = displayMetrics.widthPixels
     }
 
     private fun getListDatum() {

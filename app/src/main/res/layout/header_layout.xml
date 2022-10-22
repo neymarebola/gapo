@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <import type="com.bumptech.glide.Glide"/>
@@ -22,9 +23,10 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_profile_image_datum_item"
-                setImageProfile="@{datum.user.avatar}"
                 android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:setImageProfile='@{datum.user.avatar ?? ""}'
                 tools:src="@drawable/header_avatar" />
 
             <LinearLayout

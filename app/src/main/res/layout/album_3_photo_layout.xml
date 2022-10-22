@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     
@@ -8,6 +8,8 @@
         android:id="@+id/three_photo_first_pic"
         android:layout_width="241.33dp"
         android:layout_height="299.67dp"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
         android:scaleType="fitXY"/>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -18,12 +20,16 @@
             android:id="@+id/three_photo_second_pic"
             android:layout_width="118.67dp"
             android:layout_height="148.84dp"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
             android:scaleType="fitXY"/>
         <ImageView
             android:id="@+id/three_photo_third_pic"
             android:layout_width="118.67dp"
             android:layout_height="148.84dp"
             android:layout_marginTop="2dp"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
             android:scaleType="fitXY"/>
     </LinearLayout>
 </LinearLayout>

@@ -15,7 +15,6 @@ import com.example.btvn3.databinding.*
 import com.example.btvn3.models.Comment
 import com.example.btvn3.models.PostType
 import com.example.btvn3.models.Datum
-import com.github.marlonlom.utilities.timeago.TimeAgo
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 import kotlinx.android.synthetic.main.album_2_photo_layout.view.*
@@ -36,6 +35,10 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.listDatum = listDatum
     }
 
+    class HeaderRcvViewHolder(val headerRcvLayoutBinding: HeaderRcvLayoutBinding) :
+        RecyclerView.ViewHolder(headerRcvLayoutBinding.root) {
+
+    }
 
     class StatusViewHolder(val statusTypeLayoutBinding: StatusTypeLayoutBinding) :
         RecyclerView.ViewHolder(statusTypeLayoutBinding.root) {
@@ -59,72 +62,121 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     }
 
-
-    fun setTwoComments(rcvComment: RecyclerView, adapter: CommentAdapter) {
-        var layoutManager: LinearLayoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        rcvComment.layoutManager = layoutManager
-        rcvComment.adapter = adapter
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(context)
-        if (viewType == 1) {
+        if (viewType == PostType.STATUS) {
             val statusTypeLayoutBinding = StatusTypeLayoutBinding.inflate(inflater, parent, false)
             return StatusViewHolder(statusTypeLayoutBinding)
-        } else if (viewType == 2) {
+        } else if (viewType == PostType.PHOTO) {
             val photoTypeLayoutBinding = PhotoTypeLayoutBinding.inflate(inflater, parent, false)
             return PhotoViewHolder(photoTypeLayoutBinding)
-        } else if (viewType == 3) {
+        } else if (viewType == PostType.VIDEO) {
             val videoTypeLayoutBinding = VideoTypeLayoutBinding.inflate(inflater, parent, false)
             return VideoViewHolder(videoTypeLayoutBinding)
-        } else {
+        } else if (viewType == PostType.ALBUM) {
             val albumTypeLayoutBinding = AlbumTypeLayoutBinding.inflate(inflater, parent, false)
             return AlbumViewHolder(albumTypeLayoutBinding)
+        } else {
+            val headerRcvLayoutBinding = HeaderRcvLayoutBinding.inflate(inflater, parent, false)
+            return HeaderRcvViewHolder(headerRcvLayoutBinding)
         }
     }
 
     fun setHeaderData(datum: Datum, holder: RecyclerView.ViewHolder) {
-        //val inflater = LayoutInflater.from(HeaderLayoutBinding.)
-//        var headerLayoutBinding = HeaderLayoutBinding.inflate(inflater)
-////
-////        context?.let { Glide.with(it).load(datum.user.avatar).into(holder.profileImage) }
-////        holder.displayName.text = datum.user.display_name
-////        var createTime = TimeAgo.using(datum.create_time.toLong())
-////        holder.createTime.text = createTime
-//
-//        headerLayoutBinding.txtDisplayNameDatumItem.setOnClickListener {
-//            Toast.makeText(context, "hehe", Toast.LENGTH_SHORT).show()
-//        }
         if (datum.post_type == PostType.STATUS) {
             var statusViewHolder = holder as StatusViewHolder
 //            var avatar = datum.user.avatar
-            holder.statusTypeLayoutBinding.incHeaderLayout.datum = datum
+            statusViewHolder.statusTypeLayoutBinding.incHeaderLayout.datum = datum
 //            context?.let { Glide.with(it).load(datum.user.avatar).into(
 //                holder.statusTypeLayoutBinding.incHeaderLayout.ivProfileImageDatumItem) }
 //            holder.statusTypeLayoutBinding.incHeaderLayout.txtDisplayNameDatumItem.text = datum.user.display_name
 //            holder.statusTypeLayoutBinding.incHeaderLayout.txtCreateTimeDatumItem.text = TimeAgo.using(datum.create_time as Long)
         } else if (datum.post_type == PostType.PHOTO) {
-            var statusViewHolder = holder as StatusViewHolder
-            var avatar = datum.user.avatar
-            context?.let { Glide.with(it).load(datum.user.avatar).into(
-                holder.statusTypeLayoutBinding.incHeaderLayout.ivProfileImageDatumItem) }
-            holder.statusTypeLayoutBinding.incHeaderLayout.txtDisplayNameDatumItem.text = datum.user.display_name
-            holder.statusTypeLayoutBinding.incHeaderLayout.txtCreateTimeDatumItem.text = TimeAgo.using(datum.create_time as Long)
-        } else if (datum.post_type == PostType.STATUS) {
-            var statusViewHolder = holder as StatusViewHolder
-            var avatar = datum.user.avatar
-            context?.let { Glide.with(it).load(datum.user.avatar).into(
-                holder.statusTypeLayoutBinding.incHeaderLayout.ivProfileImageDatumItem) }
-            holder.statusTypeLayoutBinding.incHeaderLayout.txtDisplayNameDatumItem.text = datum.user.display_name
-            holder.statusTypeLayoutBinding.incHeaderLayout.txtCreateTimeDatumItem.text = TimeAgo.using(datum.create_time as Long)
-        } else if (datum.post_type == PostType.STATUS) {
-            var statusViewHolder = holder as StatusViewHolder
-            var avatar = datum.user.avatar
-            context?.let { Glide.with(it).load(datum.user.avatar).into(
-                holder.statusTypeLayoutBinding.incHeaderLayout.ivProfileImageDatumItem) }
-            holder.statusTypeLayoutBinding.incHeaderLayout.txtDisplayNameDatumItem.text = datum.user.display_name
-            holder.statusTypeLayoutBinding.incHeaderLayout.txtCreateTimeDatumItem.text = TimeAgo.using(datum.create_time as Long)
+            var photoViewHolder = holder as PhotoViewHolder
+            // var avatar = datum.user.avatar
+            photoViewHolder.photoTypeLayoutBinding.incHeaderLayout.datum = datum
+//            context?.let { Glide.with(it).load(datum.user.avatar).into(
+//                holder.statusTypeLayoutBinding.incHeaderLayout.ivProfileImageDatumItem) }
+//            holder.statusTypeLayoutBinding.incHeaderLayout.txtDisplayNameDatumItem.text = datum.user.display_name
+//            holder.statusTypeLayoutBinding.incHeaderLayout.txtCreateTimeDatumItem.text = TimeAgo.using(datum.create_time as Long)
+        } else if (datum.post_type == PostType.VIDEO) {
+            var videoViewHolder = holder as VideoViewHolder
+            videoViewHolder.videoTypeLayoutBinding.incHeaderLayout.datum = datum
+//            var avatar = datum.user.avatar
+//            context?.let { Glide.with(it).load(datum.user.avatar).into(
+//                holder.statusTypeLayoutBinding.incHeaderLayout.ivProfileImageDatumItem) }
+//            holder.statusTypeLayoutBinding.incHeaderLayout.txtDisplayNameDatumItem.text = datum.user.display_name
+//            holder.statusTypeLayoutBinding.incHeaderLayout.txtCreateTimeDatumItem.text = TimeAgo.using(datum.create_time as Long)
+        } else if (datum.post_type == PostType.ALBUM) {
+            var albumViewHolder = holder as AlbumViewHolder
+            albumViewHolder.albumTypeLayoutBinding.incHeaderLayout.datum = datum
+//            var avatar = datum.user.avatar
+//            context?.let { Glide.with(it).load(datum.user.avatar).into(
+//                holder.statusTypeLayoutBinding.incHeaderLayout.ivProfileImageDatumItem) }
+//            holder.statusTypeLayoutBinding.incHeaderLayout.txtDisplayNameDatumItem.text = datum.user.display_name
+//            holder.statusTypeLayoutBinding.incHeaderLayout.txtCreateTimeDatumItem.text = TimeAgo.using(datum.create_time as Long)
+        }
+    }
+
+    fun setFooterData(datum: Datum, holder: RecyclerView.ViewHolder) {
+        when (datum.post_type) {
+            PostType.STATUS -> {
+                holder as StatusViewHolder
+                holder.statusTypeLayoutBinding.incFooterLayout.datum = datum
+            }
+            PostType.PHOTO -> {
+                holder as PhotoViewHolder
+                holder.photoTypeLayoutBinding.incFooterLayout.datum = datum
+            }
+            PostType.VIDEO -> {
+                holder as VideoViewHolder
+                holder.videoTypeLayoutBinding.incFooterLayout.datum = datum
+            }
+            PostType.ALBUM -> {
+                holder as AlbumViewHolder
+                holder.albumTypeLayoutBinding.incFooterLayout.datum = datum
+            }
+        }
+    }
+
+    fun setTwoComments(datum: Datum, holder: RecyclerView.ViewHolder) {
+        var listC = mutableListOf<Comment>()
+        if (!datum.comments.isEmpty()) {
+            listC.add(datum.comments[0])
+        }
+
+        var layoutManager: LinearLayoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        var commentRec: RecyclerView
+        when (datum.post_type) {
+            PostType.STATUS -> {
+                holder as StatusViewHolder
+                commentRec = holder.statusTypeLayoutBinding.rcvComment
+                commentRec.layoutManager = layoutManager
+                var adapter = CommentAdapter(context, listC)
+                commentRec.adapter = adapter
+            }
+            PostType.PHOTO -> {
+                holder as PhotoViewHolder
+                commentRec = holder.photoTypeLayoutBinding.rcvComment
+                commentRec.layoutManager = layoutManager
+                var adapter = CommentAdapter(context, listC)
+                commentRec.adapter = adapter
+            }
+            PostType.VIDEO -> {
+                holder as VideoViewHolder
+                commentRec = holder.videoTypeLayoutBinding.rcvComment
+                commentRec.layoutManager = layoutManager
+                var adapter = CommentAdapter(context, listC)
+                commentRec.adapter = adapter
+            }
+            PostType.ALBUM -> {
+                holder as AlbumViewHolder
+                commentRec = holder.albumTypeLayoutBinding.rcvComment
+                commentRec.layoutManager = layoutManager
+                var adapter = CommentAdapter(context, listC)
+                commentRec.adapter = adapter
+            }
         }
     }
 
@@ -134,14 +186,11 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
             var postType = datum.post_type
 
             if (postType == 1) {
-                // set status
-                /*
-                initView(holder)
                 setHeaderData(datum, holder)
-                setFooterData(datum, holder)*/
+                setFooterData(datum, holder)
+                // set status
                 if (datum.content != null) {
                     (holder as StatusViewHolder).onBind(datum)
-                    //holder.status.text = datum.content
                 } else {
                     (holder as StatusViewHolder).statusTypeLayoutBinding.txtStatus.visibility =
                         View.GONE
@@ -153,14 +202,13 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     listC.add(datum.comments.get(0))
                     var manager: LinearLayoutManager =
                         LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-//                    holder.recyclerViewComment.layoutManager = manager
-//                    var adapter: CommentAdapter = CommentAdapter(context, listC)
-//                    holder.recyclerViewComment.adapter = adapter
                 }
+
+                setTwoComments(datum, holder)
+
             } else if (postType == 2) {
-//                    initView(holder)
-//                    setHeaderData(datum, holder)
-//                    setFooterData(datum, holder)
+                setHeaderData(datum, holder)
+                setFooterData(datum, holder)
                 // set status
                 var photoViewHolder = holder as PhotoViewHolder
                 if (datum.content != null) {
@@ -178,17 +226,11 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     }
                 }
 
-                // set two comment
-//                    if (datum.comments.size >= 2) {
-//                        var listC = mutableListOf<Comment>()
-//                        listC.add(datum.comments.get(0))
-//                        var adapter: CommentAdapter = CommentAdapter(context, listC)
-//                        setTwoComments(holder.recyclerViewComment, adapter)
-//                    }
+                setTwoComments(datum, holder)
+
             } else if (postType == 3) {
-//                initView(holder)
-//                setHeaderData(datum, holder)
-//                setFooterData(datum, holder)
+                setHeaderData(datum, holder)
+                setFooterData(datum, holder)
                 // set status
                 var videoViewHolder = holder as VideoViewHolder
                 if (datum.content != null) {
@@ -211,19 +253,14 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         }
                     }
                 }
-                // set two comment
-//                if (datum.comments.size >= 2) {
-//                    var listC = mutableListOf<Comment>()
-//                    listC.add(datum.comments.get(0))
-//                    var adapter: CommentAdapter = CommentAdapter(context, listC)
-//                    setTwoComments(holder.recyclerViewComment, adapter)
-//                }
-            } else if (postType == 4) {
-//                initView(holder)
-//                setHeaderData(datum, holder)
-//                setFooterData(datum, holder)
 
+                setTwoComments(datum, holder)
+
+            } else if (postType == 4) {
+                setHeaderData(datum, holder)
+                setFooterData(datum, holder)
                 var albumViewHolder = holder as AlbumViewHolder
+
                 // set status
                 if (datum.content != null) {
                     albumViewHolder.albumTypeLayoutBinding.txtStatus.text = datum.content
@@ -234,23 +271,12 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 var listMediaDatum = datum.mediaData
                 var size = listMediaDatum.size
 
-//                holder.album2PhotoLayout =
-//                    holder.itemView.findViewById(R.id.inc_album_2_photo_layout)
-//                holder.album3PhotoLayout =
-//                    holder.itemView.findViewById(R.id.inc_album_2_photo_layout)
-//                holder.album4PhotoLayout =
-//                    holder.itemView.findViewById(R.id.inc_album_2_photo_layout)
-//                holder.album5PhotoLayout =
-//                    holder.itemView.findViewById(R.id.inc_album_2_photo_layout)
-//                holder.albumMutiPhotoLayout =
-//                    holder.itemView.findViewById(R.id.inc_album_2_photo_layout)
-
                 if (size == 2) {
                     holder.albumTypeLayoutBinding.incAlbum2PhotoLayout.visibility = View.VISIBLE
-//                    holder.albumTypeLayoutBinding.incAlbum3PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbum4PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbum5PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbumMultiplePhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum3PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum4PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum5PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbumMultiplePhotoLayout.visibility = View.GONE
 
                     var img1 =
                         holder.albumTypeLayoutBinding.incAlbum2PhotoLayout.two_photo_first_pic
@@ -259,15 +285,12 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     Glide.with(context).load(listMediaDatum[0].src).into(img1)
                     Glide.with(context).load(listMediaDatum[1].src).into(img2)
                 } else if (size == 3) {
-                    //holder.albumTypeLayoutBinding.incAlbum2PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum2PhotoLayout.visibility = View.GONE
                     holder.albumTypeLayoutBinding.incAlbum3PhotoLayout.visibility = View.VISIBLE
-//                    holder.albumTypeLayoutBinding.incAlbum4PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbum5PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbumMultiplePhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum4PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum5PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbumMultiplePhotoLayout.visibility = View.GONE
 
-//                    holder.firstPic = holder.itemView.findViewById(R.id.three_photo_first_pic)
-//                    holder.secondPic = holder.itemView.findViewById(R.id.three_photo_second_pic)
-//                    holder.thirdPic = holder.itemView.findViewById(R.id.three_photo_third_pic)
                     var img1 =
                         holder.albumTypeLayoutBinding.incAlbum3PhotoLayout.three_photo_first_pic
                     var img2 =
@@ -278,11 +301,11 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     Glide.with(context).load(listMediaDatum[1].src).into(img2)
                     Glide.with(context).load(listMediaDatum[1].src).into(img3)
                 } else if (size == 4) {
-//                    holder.albumTypeLayoutBinding.incAlbum2PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbum3PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum2PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum3PhotoLayout.visibility = View.GONE
                     holder.albumTypeLayoutBinding.incAlbum4PhotoLayout.visibility = View.VISIBLE
-//                    holder.albumTypeLayoutBinding.incAlbum5PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbumMultiplePhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum5PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbumMultiplePhotoLayout.visibility = View.GONE
 
                     var img1 =
                         holder.albumTypeLayoutBinding.incAlbum4PhotoLayout.four_photo_first_pic
@@ -297,11 +320,11 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     Glide.with(context).load(listMediaDatum[1].src).into(img3)
                     Glide.with(context).load(listMediaDatum[1].src).into(img4)
                 } else if (size == 5) {
-//                    holder.albumTypeLayoutBinding.incAlbum2PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbum3PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbum4PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum2PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum3PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum4PhotoLayout.visibility = View.GONE
                     holder.albumTypeLayoutBinding.incAlbum5PhotoLayout.visibility = View.VISIBLE
-                    // holder.albumTypeLayoutBinding.incAlbumMultiplePhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbumMultiplePhotoLayout.visibility = View.GONE
 
                     var img1 =
                         holder.albumTypeLayoutBinding.incAlbum5PhotoLayout.five_photo_first_pic
@@ -319,10 +342,10 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     Glide.with(context).load(listMediaDatum[1].src).into(img4)
                     Glide.with(context).load(listMediaDatum[1].src).into(img5)
                 } else if (size > 5) {
-//                    holder.albumTypeLayoutBinding.incAlbum2PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbum3PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbum4PhotoLayout.visibility = View.GONE
-//                    holder.albumTypeLayoutBinding.incAlbum5PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum2PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum3PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum4PhotoLayout.visibility = View.GONE
+                    holder.albumTypeLayoutBinding.incAlbum5PhotoLayout.visibility = View.GONE
                     holder.albumTypeLayoutBinding.incAlbumMultiplePhotoLayout.visibility =
                         View.VISIBLE
 
@@ -346,13 +369,8 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     holder.albumTypeLayoutBinding.incAlbumMultiplePhotoLayout.txt_remaining_photo_number.text =
                         "+${size - 4}"
                 }
-                // set two comment
-//                if (datum.comments.size >= 2) {
-//                    var listC = mutableListOf<Comment>()
-//                    listC.add(datum.comments.get(0))
-//                    var adapter = CommentAdapter(context, listC)
-//                    setTwoComments(holder.recyclerViewComment, adapter)
-//                }
+
+                setTwoComments(datum, holder)
             }
 
         }
@@ -381,7 +399,6 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return PostType.ALBUM
         } else return PostType.LINK
     }
-
 }
 
 

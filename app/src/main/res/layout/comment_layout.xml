@@ -14,6 +14,7 @@
     <LinearLayout
         android:layout_width="336dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -30,32 +31,43 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="72dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@drawable/comment_tex">
 
-                <TextView
-                    android:id="@+id/txt_display_name_comment_row"
-                    android:layout_width="110dp"
-                    android:layout_height="16dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@{comment.user.display_name}"
-                    android:textAppearance="@style/user_name"
-                    android:lineSpacingExtra="2sp"
-                    android:translationY="-0.84sp"
-                    android:gravity="top" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/txt_display_name_comment_row"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@{comment.user.display_name}"
+                        android:textAppearance="@style/user_name"
+                        android:lineSpacingExtra="2sp"
+                        android:translationY="-0.84sp"
+                        android:gravity="top" />
 
-                <TextView
-                    android:id="@+id/txt_content_comment_row"
-                    android:layout_width="264dp"
-                    android:layout_height="40dp"
-                    android:text="@{comment.content}"
-                    android:layout_marginStart="12dp"
-                    android:textAppearance="@style/text"
-                    android:lineSpacingExtra="3sp"
-                    android:translationY="-1.65sp"
-                    android:gravity="top" />
+                    <kr.co.prnd.readmore.ReadMoreTextView
+                        android:id="@+id/txt_content_comment_row"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{comment.content}"
+                        android:layout_marginStart="12dp"
+                        android:textAppearance="@style/text"
+                        android:lineSpacingExtra="3sp"
+                        android:translationY="-1.65sp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="top"
+                        app:readMoreColor="@color/accentWorkSecondary"
+                        app:readMoreMaxLine="2"
+                        app:readMoreText="...Xem thêm"/>
+                </LinearLayout>
+
             </LinearLayout>
 
             <ImageView
