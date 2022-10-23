@@ -15,6 +15,7 @@ import com.example.btvn3.databinding.*
 import com.example.btvn3.models.Comment
 import com.example.btvn3.models.PostType
 import com.example.btvn3.models.Datum
+import com.example.btvn3.views.DetailActivity
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 import kotlinx.android.synthetic.main.album_2_photo_layout.view.*
@@ -375,10 +376,11 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         }
 
-//        holder.itemView.setOnClickListener {
-//            var intent = Intent(context, DetailActivity::class.java)
-//            context.startActivity(intent)
-//        }
+        //
+        holder.itemView.setOnClickListener {
+            var intent = Intent(context, DetailActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = listDatum.size + 1
