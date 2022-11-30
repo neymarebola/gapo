@@ -401,6 +401,12 @@ class DatumAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
             return PostType.ALBUM
         } else return PostType.LINK
     }
+
+    fun setData(listP: List<Datum>) {
+        listP.shuffled()
+        this.listDatum = listP as MutableList<Datum>
+        notifyDataSetChanged()
+    }
 }
 
 
